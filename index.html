@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cartilla de Evaluación DIGEH</title>
+  <style>
+    :root{
+      --bg:#f4f7fb;
+      --card:#ffffff;
+      --primary:#0f4c81;
+      --primary-2:#1d6fb8;
+      --text:#1d2733;
+      --muted:#5f6b7a;
+      --line:#d9e2ec;
+      --ok:#1f9d55;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--bg);
+      color:var(--text);
+    }
+    .wrap{
+      max-width:1100px;
+      margin:0 auto;
+      padding:24px;
+    }
+    .hero{
+      background:linear-gradient(135deg,var(--primary),var(--primary-2));
+      color:#fff;
+      border-radius:18px;
+      padding:28px;
+      box-shadow:0 10px 30px rgba(15,76,129,.18);
+    }
+    .hero h1{
+      margin:0 0 8px;
+      font-size:32px;
+    }
+    .hero p{
+      margin:0;
+      line-height:1.5;
+      max-width:780px;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:16px;
+      margin-top:20px;
+    }
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:18px;
+      box-shadow:0 6px 20px rgba(15,23,42,.05);
+    }
+    .card h2{
+      margin-top:0;
+      font-size:20px;
+      color:var(--primary);
+    }
+    .meta{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:14px;
+      margin-top:24px;
+    }
+    label{
+      display:block;
+      font-weight:700;
+      margin-bottom:6px;
+      font-size:14px;
+    }
+    input, textarea, select{
+      width:100%;
+      padding:12px 14px;
+      border:1px solid var(--line);
+      border-radius:10px;
+      font-size:14px;
+      background:#fff;
+    }
+    textarea{
+      min-height:120px;
+      resize:vertical;
+    }
+    table{
+      width:100%;
+      border-collapse:collapse;
+      margin-top:16px;
+      background:#fff;
+      border-radius:14px;
+      overflow:hidden;
+    }
+    th, td{
+      border:1px solid var(--line);
+      padding:12px;
+      text-align:left;
+      vertical-align:top;
+      font-size:14px;
+    }
+    th{
+      background:#eef4fb;
+      color:var(--primary);
+    }
+    .section{
+      margin-top:24px;
+    }
+    .badge{
+      display:inline-block;
+      padding:6px 10px;
+      border-radius:999px;
+      background:#e8f3ff;
+      color:var(--primary);
+      font-weight:700;
+      font-size:12px;
+      margin-bottom:10px;
+    }
+    .actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:24px;
+    }
+    button{
+      border:none;
+      border-radius:12px;
+      padding:12px 18px;
+      font-size:14px;
+      font-weight:700;
+      cursor:pointer;
+    }
+    .btn-primary{
+      background:var(--primary);
+      color:#fff;
+    }
+    .btn-secondary{
+      background:#eaf2fb;
+      color:var(--primary);
+    }
+    .footer-note{
+      margin-top:20px;
+      color:var(--muted);
+      font-size:13px;
+    }
+    @media print{
+      body{background:#fff}
+      .hero{box-shadow:none}
+      .actions{display:none}
+      .wrap{max-width:100%; padding:0}
+      .card{box-shadow:none}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <h1>Cartilla de Evaluación</h1>
+      <p>
+        Formato web editable para registrar información general, criterios de evaluación,
+        observaciones y resultado final. Puedes modificar títulos, campos y tablas
+        según el proceso de evaluación de tu dependencia.
+      </p>
+    </section>
+
+    <section class="meta">
+      <div class="card">
+        <label>Unidad / Dependencia</label>
+        <input type="text" placeholder="Ej. DIGEH" />
+      </div>
+      <div class="card">
+        <label>Fecha de evaluación</label>
+        <input type="date" />
+      </div>
+      <div class="card">
+        <label>Evaluador</label>
+        <input type="text" placeholder="Nombre del evaluador" />
+      </div>
+      <div class="card">
+        <label>Evaluado</label>
+        <input type="text" placeholder="Nombre del evaluado" />
+      </div>
+    </section>
+
+    <section class="section card">
+      <span class="badge">Información general</span>
+      <h2>Datos básicos</h2>
+      <div class="meta">
+        <div>
+          <label>Cargo / Rol</label>
+          <input type="text" placeholder="Escriba el cargo" />
+        </div>
+        <div>
+          <label>Área</label>
+          <input type="text" placeholder="Escriba el área" />
+        </div>
+        <div>
+          <label>Periodo evaluado</label>
+          <input type="text" placeholder="Ej. Enero - Junio 2026" />
+        </div>
+        <div>
+          <label>Estado</label>
+          <select>
+            <option>Pendiente</option>
+            <option>En proceso</option>
+            <option>Finalizada</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <section class="section card">
+      <span class="badge">Criterios</span>
+      <h2>Tabla de evaluación</h2>
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 40%">Criterio</th>
+            <th style="width: 15%">Peso</th>
+            <th style="width: 15%">Calificación</th>
+            <th style="width: 30%">Observación</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Cumplimiento de funciones</td>
+            <td><input type="number" placeholder="20" /></td>
+            <td><input type="number" placeholder="4.5" step="0.1" /></td>
+            <td><input type="text" placeholder="Observación" /></td>
+          </tr>
+          <tr>
+            <td>Calidad del trabajo</td>
+            <td><input type="number" placeholder="20" /></td>
+            <td><input type="number" placeholder="4.2" step="0.1" /></td>
+            <td><input type="text" placeholder="Observación" /></td>
+          </tr>
+          <tr>
+            <td>Disciplina y responsabilidad</td>
+            <td><input type="number" placeholder="20" /></td>
+            <td><input type="number" placeholder="4.8" step="0.1" /></td>
+            <td><input type="text" placeholder="Observación" /></td>
+          </tr>
+          <tr>
+            <td>Trabajo en equipo</td>
+            <td><input type="number" placeholder="20" /></td>
+            <td><input type="number" placeholder="4.6" step="0.1" /></td>
+            <td><input type="text" placeholder="Observación" /></td>
+          </tr>
+          <tr>
+            <td>Iniciativa y mejora</td>
+            <td><input type="number" placeholder="20" /></td>
+            <td><input type="number" placeholder="4.0" step="0.1" /></td>
+            <td><input type="text" placeholder="Observación" /></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="grid">
+      <div class="card">
+        <span class="badge">Análisis</span>
+        <h2>Fortalezas</h2>
+        <textarea placeholder="Escribe las fortalezas encontradas"></textarea>
+      </div>
+      <div class="card">
+        <span class="badge">Mejora</span>
+        <h2>Aspectos por mejorar</h2>
+        <textarea placeholder="Escribe oportunidades de mejora"></textarea>
+      </div>
+    </section>
+
+    <section class="section card">
+      <span class="badge">Resultado</span>
+      <h2>Concepto final</h2>
+      <div class="meta">
+        <div>
+          <label>Calificación final</label>
+          <input type="text" placeholder="Ej. 4.42 / 5.00" />
+        </div>
+        <div>
+          <label>Concepto</label>
+          <select>
+            <option>Excelente</option>
+            <option>Sobresaliente</option>
+            <option>Aceptable</option>
+            <option>Por mejorar</option>
+          </select>
+        </div>
+      </div>
+      <div class="section">
+        <label>Observación final</label>
+        <textarea placeholder="Conclusión general de la evaluación"></textarea>
+      </div>
+    </section>
+
+    <section class="actions">
+      <button class="btn-primary" onclick="window.print()">Imprimir / Guardar PDF</button>
+      <button class="btn-secondary" onclick="alert('Edita el contenido directamente en GitHub o en tu editor HTML.')">Ayuda</button>
+    </section>
+
+    <p class="footer-note">
+      Plantilla base en HTML para edición manual. Puedes cambiar colores, textos,
+      campos, tablas y logos según tu cartilla institucional.
+    </p>
+  </div>
+</body>
+</html>
